@@ -1,5 +1,6 @@
 <!-- Search Results -->
-<div class="w-full max-w-xl space-y-6">
+{% for text, cid in text_boxes %}
+<div class="w-full space-y-6">
     <!-- Example result box with hover effect -->
     <div class="bg-white p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl">
         <h3 class="text-xl font-semibold mb-2">{{cid}}</h3>
@@ -10,3 +11,4 @@
     </div>
     <!-- Additional result boxes can be added here as needed -->
 </div>
+{% endfor %}
