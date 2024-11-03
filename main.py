@@ -26,6 +26,8 @@ async def home(request: Request):
 async def search(request: Request, text: str, k: int):
     texts = api_search.text_seach(text, k)
     cids = api_search.cid_seach(text, k)
+    if (texts is None) or (cids is None):
+        return Response(content="Error", status_code=500)
     text_boxes = [(text, cid) for text, cid in zip(texts, cids)]
     return templates.TemplateResponse("text_boxes.html", 
         {"request": request,
@@ -37,4 +39,5 @@ async def update(url_api_server: str|None = None):
     if url_api_server:
         global URL_API_SEARCH
         URL_API_SEARCH = url_api_server
+        api_search.URL_SERVER = URL_API_SEARCH
     return {"message": "Update!"}

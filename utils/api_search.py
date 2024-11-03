@@ -14,6 +14,10 @@ def text_seach(text: str, k: int):
         "k": k
     }
     response = requests.get(URL_SERVER+'/text/', headers=headers, params=params)
+    try:
+        response.raise_for_status()
+    except:
+        return None
     encoded = response.text
     pickled = json.loads(encoded)   
     unpickled = pickle.loads(codecs.decode(pickled.encode(), "base64"))    
@@ -28,6 +32,10 @@ def cid_seach(text: str, k: int):
         "k": k
     }
     response = requests.get(URL_SERVER+'/cid/', headers=headers, params=params)
+    try:
+        response.raise_for_status()
+    except:
+        return None
     encoded = response.text
     pickled = json.loads(encoded)   
     unpickled = pickle.loads(codecs.decode(pickled.encode(), "base64"))    
