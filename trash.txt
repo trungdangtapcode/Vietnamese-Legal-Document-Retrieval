@@ -1,0 +1,15 @@
+texts = api_search.text_seach(text, k)
+cids = api_search.cid_seach(text, k)
+print(texts)
+if (texts is None) or (cids is None):
+    return Response(content="Error", status_code=500)
+text_boxes = [(text, cid) for text, cid in zip(texts, cids)]
+
+
+        // Create new content block to add above
+        const newContent = document.createElement('div');
+        newContent.classList.add('content');
+        newContent.textContent = `Lazy Loaded Content Block ${contentCounterAbove--}`;
+        
+        // Insert the new content above the top sentinel
+        container.insertBefore(newContent, topSentinel.nextSibling);

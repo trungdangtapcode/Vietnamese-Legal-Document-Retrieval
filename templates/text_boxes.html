@@ -1,11 +1,12 @@
 <!-- Search Results -->
 {% for text, cid in text_boxes %}
-<div class="w-full space-y-6">
+<div class="w-full space-y-6 my-8">
     <!-- Example result box with hover effect -->
     <div class="bg-white p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl">
-        <h3 class="text-xl font-semibold mb-2">{{cid}}</h3>
-        <p class="text-gray-600">{{text}}</p>
-        <button class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none">
+        <h3 class="text-xl font-semibold mb-2">{{cid|safe}}</h3>
+        <p class="text-gray-600">{{text|safe}}</p>
+        <button class="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:outline-none"
+        onclick="window.open('/viewmore?cid={{cid}}', '_blank')">
             View More
         </button>
     </div>

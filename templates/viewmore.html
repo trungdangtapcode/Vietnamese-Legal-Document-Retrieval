@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazy Load Scroll</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-y: scroll;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .content {
+            background-color: #f4f4f4;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        #sentinel {
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container p-20" id="contentContainer">
+        <button class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            onclick="loadContentAbove()">
+            ↑↑↑↑↑
+        </button>
+        <div id="top-sentinel"></div>
+        <!-- Existing Content -->
+        
+        <!-- Sentinel element at the end of the container -->
+        <div id="bottom-sentinel"></div>
+        <button class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            onclick="loadContentBelow()">
+            ↓↓↓↓↓
+        </button>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        var current_cid = "{{cid}}";
+        
+    </script>
+    <script src="{{url_for('static',path='js/viewmore.js')}}"></script>
+</body>
+</html>
